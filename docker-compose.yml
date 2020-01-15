@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    image: app
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    ports:
+      - "3000"
+    networks:
+      - test
+
+  proxy-nginx:
+    container_name: proxy-nginx
+    image: proxy-nginx
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - test
+    depends_on:
+      - app
+
+networks:
+  test:
+    driver: bridge
