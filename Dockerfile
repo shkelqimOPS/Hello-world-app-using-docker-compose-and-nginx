@@ -4,7 +4,9 @@ WORKDIR /src
 
 COPY . /src
 
-FROM node:alpine
+FROM alpine
+
+RUN apk add --no-cache nodejs-current tini
 
 WORKDIR /src
 
