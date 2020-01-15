@@ -2,7 +2,11 @@ FROM node:alpine as build
 
 WORKDIR /src
 
+COPY package.json /src
+
 COPY . /src
+
+RUN npm install
 
 FROM alpine
 
