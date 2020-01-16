@@ -9,7 +9,7 @@ services:
     ports:
       - "3000"
     networks:
-      - test
+      - backend
 
   proxy-nginx:
     container_name: proxy-nginx
@@ -20,10 +20,10 @@ services:
     ports:
       - "80:80"
     networks:
-      - test
+      - backend
     depends_on:
       - app
 
 networks:
-  test:
+  backend:
     driver: bridge
