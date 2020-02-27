@@ -1,8 +1,7 @@
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-ENTRYPOINT ["nginx"]
-CMD ["-g", "daemon off;"]
+CMD ["nginx","-g", "daemon off;"]

@@ -1,6 +1,6 @@
 version: '3'
 services:
-  app:
+  app2:
     container_name: app
     image: app
     build:
@@ -8,8 +8,7 @@ services:
       dockerfile: Dockerfile
     networks:
       - backend
-
-  proxy-nginx:
+  proxy:
     container_name: proxy-nginx
     image: proxy-nginx
     build:
@@ -20,7 +19,7 @@ services:
     networks:
       - backend
     depends_on:
-      - app
+      - app2
 
 networks:
   backend:
