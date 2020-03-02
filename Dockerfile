@@ -17,5 +17,3 @@ COPY --from=build /src/ /src/
 USER app
 
 ENTRYPOINT ["node","server.js"]
- 
-
