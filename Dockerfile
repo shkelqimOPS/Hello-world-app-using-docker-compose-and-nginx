@@ -12,9 +12,9 @@ RUN apk add --no-cache nodejs-current tini
 
 WORKDIR /src
 
-EXPOSE 3000
-
 COPY --from=build /src/ /src/
+
+USER app
 
 ENTRYPOINT ["node","server.js"]
  
